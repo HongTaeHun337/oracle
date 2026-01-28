@@ -2,14 +2,21 @@
 
 -- ### count() ###################################
 
--- 1. tblCountry. 아시아(AS)와 유럽(EU)에 속한 나라는 총 몇개국??
-        
+select *
+    from tblCountry
 
+-- 1. tblCountry. 아시아(AS)와 유럽(EU)에 속한 나라는 총 몇개국??
+select count(*)
+    from tblCountry where continent in ( 'AS', 'EU');
+    
 -- 2. tblCountry. 인구수가 7000 ~ 20000 사이인 나라는 몇개국??
+select count(*)
+    from tblCountry where population between 7000 and 20000;
     
 
 -- 3. employees. 'IT_PROG' 중에서 급여가 5000불이 넘는 직원은 몇명? > job_id
-
+select count(*)
+    from employees where job_id = 'IT_PROG' and salary > 5000;
 
 -- 4. tblInsa. 010을 안쓰는 사람은 몇명?(연락처가 없는 사람은 제외) > tel
     

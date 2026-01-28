@@ -1,0 +1,181 @@
+-- ex23_alter.sql
+
+/*
+
+    DML > 데이터 조작
+    - 데이터 생성: insert
+    - 데이터 수정: update
+    - 데이터 삭제: delete
+    
+    DDL > 객체 조작
+    - 객체 생성: create
+    - 객체 수정: alter(or replace)
+    - 객체 삭제: drop
+    
+    
+    테이블 수정하기
+    - 테이블 수정 > 컬럼 수정 > 컬럼명 or 자료형(길이) or 제약사항 수정
+    
+    
+    테이블을 수정해야 하는 상황 발생!!
+    1. 테이블 삭제(drop) > 테이블 DDL(create) 수정 > 수정된 DDL로 다시 테이블 생성
+        a. 기존 테이블에 데이터가 없는 경우 > 아무 문제 없음~
+        b. 기존 테이블에 데이터가 있는 경우 > 미리 데이터 백업 > 테이블 삭제
+            > 테이블 DDL(create) 수정 > 수정된 DDL로 다시 테이블 생성
+            > 백업 데이터를 다시 복구
+    
+    2. alter 명령어 사용 > 기존 테이블의 구조 변경
+        a. 기존 테이블에 데이터가 없는 경우 > 아무 문제 없음~
+        b. 기존 테이블에 데이터가 있는 경우 > 상황에 따라 비용 차이 발생
+        
+        alter table 테이블명
+        add (컬럼 정의);
+    
+        
+*/
+
+drop table tblEdit;
+
+create table tblEdit(
+    seq number,
+    name varchar2(20)
+);
+
+insert into tblEdit values(1,'마우스');
+insert into tblEdit values(2,'키보드');
+insert into tblEdit values(3,'모니터');
+
+-- Case 1. 새로운 컬럼을 추가하기
+alter table tblEdit
+    add (컬럼 정의);
+
+alter table tblEdit
+    add (price number);
+
+delete from tblEdit;
+
+--ORA-01758: 테이블은 필수 열을 추가하기 위해 (NOT NULL) 비어 있어야 합니다.
+alter table tblEdit
+    add (price number default 0 not null);
+
+-- Case 2. 기존 컬럼을 삭제하기
+alter table tblEdit
+    drop column 컬럼명;
+    
+alter table tblEdit
+    drop column seq; --PK 삭제!! > 절대 금지!!
+
+desc tblEdit;
+
+select * from tblEdit;
+
+-- Case 3. 컬럼 수정하기
+
+-- Case 3.1 컬럼 길이 수정하기(확장/축소)
+insert into tblEdit values(4, '삼성 갤럭시북6 프로');
+alter table tblEdit
+    modify (컬럼 정의);
+
+alter table tblEdit
+    modify (name varchar2(100));    --확장
+
+alter table tblEdit
+    modify (name varchar2(27));    --축소
+    
+--상품명 중 가장 이름 긴 상품명? > 컬럼 길이 조절
+select max(length(name))  from tblEdit;
+select name from tblEdit 
+    where length(name) = (select max(length(name))  from tblEdit);
+
+select lengthb(name), length(name), name from tblEdit order by lengthb(name) desc;
+
+-- Case 3.2 컬럼의 제약사항 수정하기(not null)
+alter table tblEdit
+    modify (컬럼명 자료형(길이) null);  -- not null > null
+    
+alter table tblEdit
+    modify (컬럼명 자료형(길이) not null); -- null > not null
+
+alter table tblEdit
+    modify (name varchar2(27) not null );
+
+alter table tblEdit
+    modify (name varchar2(27) default '임시' not null ); --불가능;;ㅁ
+    
+alter table tblEdit
+    modify (name varchar2(27) null );
+    
+insert into tblEdit values(5, null);
+
+-- Case 3.3 컬럼의 자료형 바꾸기
+alter table tblEdit
+    modify (name number);
+    
+update tblEdit set name = null;
+
+-- Case 3.4 컬럼명 바꾸기
+alter table tblEdit
+    rename column name to item;
+
+
+-- Case 4. 제약 사항 조작(추가, 삭제)
+
+drop table tblEdit;
+
+create table tblEdit(
+    seq number,
+    name varchar2(20)
+);
+
+alter table tblEdit
+    add constraint tbledit_seq_pk primary key(seq);
+
+alter table tblEdit
+    add constraint tbledit_name_uq unique(name);
+
+alter table tblEdit
+    drop constraint tbledit_name_uq;
+
+desc tblEdit;
+
+select * from tblEdit;
+--Style 1
+create table tblEdit(
+    seq number primary key,
+    name varchar2(20) unique
+);
+
+--Style 2
+create table tblEdit(
+    seq number,
+    name varchar2(20),
+    
+    constraint tbledit_seq_pk primary key(seq)
+    constraint tbledit_name_uq unique(name)
+);
+
+--Style 3
+create table tblEdit(
+    seq number,
+    name varchar2(20)
+);
+
+alter table tblEdit add constraint tbledit_seq_pk primary key(seq);
+alter table tblEdit add constraint tbledit_name_uq unique(name);
+
+--DB  처음 설계 + 구축
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
