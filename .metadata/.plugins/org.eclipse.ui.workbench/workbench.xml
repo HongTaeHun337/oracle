@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="8" version="2.0">
+<workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="208" y="208">
 <fastViewData fastViewLocation="1024"/>
@@ -16,7 +16,7 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="114" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -27,17 +27,12 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.ui.DefaultTextEditor" name=".project" partName=".project" path="C:/code/oracle/수업/.project" title=".project" tooltip="수업/.project" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/수업/.project"/>
-<editorState selectionLength="0" selectionOffset="0"/>
-</editor>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="비디오.exerd" partName="비디오.exerd" path="C:/code/oracle/수업/비디오.exerd" title="비디오.exerd" tooltip="수업/비디오.exerd" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/수업/비디오.exerd"/>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="관계.exerd" partName="관계.exerd" path="C:/code/oracle/수업/관계.exerd" title="관계.exerd" tooltip="수업/관계.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/수업/관계.exerd"/>
 </editor>
 </editors>
 <views>
@@ -51,7 +46,7 @@
 <element path="/수업"/>
 </expanded>
 <selection>
-<element path="/eXERD-Samples/pos.exerd"/>
+<element path="/수업"/>
 </selection>
 </viewState>
 </view>
@@ -175,6 +170,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/eXERD-Samples/study.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/수업/.project"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/수업/비디오.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/수업/.project"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/수업/관계.exerd"/>
 </editors>
 <item historyLabel="pos.exerd" index="0"/>
 <item historyLabel="study.exerd" index="1"/>
@@ -184,7 +181,11 @@
 </item>
 <item historyLabel="비디오.exerd" index="3"/>
 <item historyLabel="pos.exerd" index="0"/>
-<item active="true" historyLabel="비디오.exerd" index="3"/>
+<item historyLabel="비디오.exerd" index="3"/>
+<item historyLabel=".project" index="4">
+<position/>
+</item>
+<item active="true" historyLabel="관계.exerd" index="5"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -202,6 +203,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="관계.exerd" tooltip="수업/관계.exerd">
+<persistable path="/수업/관계.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="pos.exerd" tooltip="eXERD-Samples/pos.exerd">
 <persistable path="/eXERD-Samples/pos.exerd"/>
 </file>
