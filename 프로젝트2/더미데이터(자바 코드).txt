@@ -1,0 +1,146 @@
+package com.test.java;
+
+import java.util.Random;
+import java.util.HashSet;
+
+public class users {
+
+	public static void main(String[] args) {
+		Random rnd = new Random();
+		//이름
+		String[] name1 = {
+	            "김", "이", "박", "최", "정", "강", "조", "윤", "장", "임",
+	            "한", "오", "서", "신", "권", "황", "안", "송", "전", "홍",
+	            "유", "고", "문", "양", "손", "배", "백", "허", "유", "남",
+	            "심", "노", "하", "곽", "성", "차", "주", "우", "구", "신",
+	            "임", "전", "민", "유", "류", "나", "진", "지", "엄", "채"
+	        };
+		String[] name2 = {
+			    "가", "나", "다", "도", "동", "민", "명", "미", "무", "범",
+			    "빈", "복", "서", "석", "선", "성", "세", "소", "수", "승",
+			    "시", "신", "아", "안", "연", "영", "예", "오", "우", "원",
+			    "유", "윤", "이", "익", "인", "재", "정", "종", "주", "준",
+			    "중", "지", "진", "찬", "창", "채", "철", "태", "하", "현"
+			};
+		String[] name3 = {
+			    "구", "국", "권", "규", "근", "기", "길", "나", "남", "녀",
+			    "노", "단", "덕", "도", "동", "란", "람", "룡", "린", "림",
+			    "면", "묘", "묵", "문", "미", "민", "바", "박", "방", "배",
+			    "백", "범", "별", "병", "보", "복", "봉", "빈", "빌", "사",
+			    "산", "상", "새", "샘", "석", "선", "설", "섭", "성", "세"
+			};
+		//--------------------------------------------------------------------------------------------
+		// 주소
+		String[] cities = {"서울특별시", "경기도", "인천광역시", "부산광역시", "대구광역시", "대전광역시", "광주광역시"};
+        
+        String[] districts = {
+            "강남구", "서초구", "송파구", "강서구", "노원구", "마포구", "은평구", "종로구", "관악구", "강동구",
+            "수원시 팔달구", "수원시 영통구", "성남시 분당구", "성남시 수정구", "고양시 일산동구", "용인시 수지구", "안양시 동안구", "부천시",
+            "남동구", "부평구", "연수구", "해운대구", "수영구", "사하구", "수성구", "달서구", "유성구", "서구", "북구", "광산구"
+        };
+
+        String[] dongs = {
+            "역삼동", "삼성동", "논현동", "방배동", "서초동", "잠실동", "가락동", "화곡동", "상계동", "중계동",
+            "망원동", "연희동", "불광동", "혜화동", "신림동", "봉천동", "천호동", "길동", "인계동", "매탄동",
+            "정자동", "서현동", "태평동", "백석동", "마두동", "풍덕천동", "범계동", "상동", "중동", "구월동",
+            "간석동", "부평동", "송도동", "우동", "좌동", "광안동", "하단동", "범어동", "상인동", "궁동", "월평동"
+        };
+
+        String[] roads = {
+            "테헤란로", "강남대로", "올림픽로", "남부순환로", "화곡로", "동일로", "월드컵로", "통일로", "대학로", "관악로",
+            "천호대로", "양재대로", "권광로", "매영로", "불정로", "성남대로", "수정로", "중앙로", "백마로", "포은대로",
+            "시민대로", "상동로", "예술로", "경인로", "인하로", "해운대해변로", "광남로", "낙동남로", "달구벌대로", "대학로", "한밭대로"
+        };
+        
+        //아이디 재료   
+        String idChars = "abcdefghijklmnopqrstuvwxyz0123456789";
+        
+        //비밀번호 재료
+        String pwChars = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+        
+        
+        //아이디 주민번호 중복값을 확인하는 주머니
+        HashSet<String> useridSet = new HashSet<>();
+        HashSet<String> juminSet = new HashSet<>();
+        
+		
+		for(int i=1; i<=300; i++) {
+			//이름
+			String fullName = name1[rnd.nextInt(name1.length)]
+						+ name2[rnd.nextInt(name2.length)] 
+						+ name3[rnd.nextInt(name3.length)];
+			//주소
+			String fullAddres = cities[rnd.nextInt(cities.length)] + " "
+							+ districts[rnd.nextInt(districts.length)] + " "
+							+ dongs[rnd.nextInt(dongs.length)] + " "
+							+ roads[rnd.nextInt(roads.length)];
+			
+			//주민등록번호
+			String jumin;
+			while (true) {
+				int fullYear = rnd.nextInt(55) + 70;
+				
+				int yy;
+				int gender;
+			
+			
+			if (fullYear <= 99) {
+				yy = fullYear;
+				gender = rnd.nextInt(2) + 1;
+			}else {
+				yy = fullYear % 100;
+				gender = rnd.nextInt(2) + 3;
+			}
+			
+			int mm = rnd.nextInt(12) + 1;
+			int dd = rnd.nextInt(28) + 1;
+			
+			jumin = String.format("%02d%02d%02d-%d%06d", yy, mm, dd, gender, rnd.nextInt(1000000));
+			
+			if (juminSet.add(jumin)) { 
+				break;}
+			}
+			
+			//전화번호
+			String phone = String.format("010-%04d-%04d", rnd.nextInt(10000), rnd.nextInt(10000));
+			
+			
+			//아이디
+			String userid;
+			while (true) {
+				StringBuilder sbId = new StringBuilder();
+				
+				int idlength = rnd.nextInt(6) + 5;
+				
+				for(int j = 0; j< idlength; j++) {
+					sbId.append(idChars.charAt(rnd.nextInt(idChars.length())));
+				};
+				
+				userid = sbId.toString();
+				
+				if (useridSet.add(userid)) {
+					break;
+				};
+			}
+			
+			
+			//비밀번호
+			String userpw;
+			StringBuilder sbPw = new StringBuilder();
+			
+			int pwlength = rnd.nextInt(8) + 8;
+			
+			for(int j= 0; j< pwlength; j++) {
+				sbPw.append(pwChars.charAt(rnd.nextInt(pwChars.length())));
+			};
+			
+			userpw = sbPw.toString();
+		
+				
+			System.out.printf("insert into Users values (users_Seq.NextVal ,'%s', '%s', '%s', '%s', '%s', '%s', 3); \r\n", fullName, fullAddres, jumin, phone, userid, userpw);
+		}
+		
+	}
+		
+}
+

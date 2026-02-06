@@ -3,5 +3,8 @@
   <component name="DataSourcePerFileMappings">
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/814519da-4e91-4f0f-9a1e-8c55240535cf/console.sql" value="814519da-4e91-4f0f-9a1e-8c55240535cf" />
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/c98c9371-8b80-42c6-ae4e-229f9a2a2ad0/console.sql" value="c98c9371-8b80-42c6-ae4e-229f9a2a2ad0" />
+    <file url="file://$PROJECT_DIR$/프로젝트2/dml(권한종류).sql" value="814519da-4e91-4f0f-9a1e-8c55240535cf" />
+    <file url="file://$PROJECT_DIR$/프로젝트2/dml(유저).sql" value="814519da-4e91-4f0f-9a1e-8c55240535cf" />
+    <file url="file://$PROJECT_DIR$/프로젝트2/dml(컴퓨터 상태).sql" value="814519da-4e91-4f0f-9a1e-8c55240535cf" />
   </component>
 </project>

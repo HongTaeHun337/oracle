@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/프로젝트2/dml(강의실).sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/프로젝트2/dml(과목).sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/프로젝트2/dml(권한종류).sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/프로젝트2/dml(사물함).sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/프로젝트2/dml(유저).sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/프로젝트2/dml(컴퓨터 상태).sql" dialect="Oracle" />
+  </component>
+</project>
