@@ -7,3 +7,4 @@ insert into AUTHORITY values (authority_SEQ.nextVal, '유저권한');
 insert into AUTHORITY values (authority_SEQ.nextVal, '수강생권한');
 
 
+commit;

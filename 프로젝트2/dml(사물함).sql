@@ -7,6 +7,8 @@ rollback ;
 DROP SEQUENCE locker_seq;
 CREATE SEQUENCE locker_seq;
 
+commit ;
+
 -----------------------------------------------------------------------------------------1번 강의실 사물함
 
 INSERT INTO LOCKER VALUES (locker_seq.NEXTVAL, '사용', 1);

@@ -2,7 +2,7 @@
 
 select  * from USERS;
 
-
+rollback ;
 CREATE SEQUENCE users_Seq;
 DROP  SEQUENCE users_Seq;
 
